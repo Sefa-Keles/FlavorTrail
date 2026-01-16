@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --primary-color: #7C0A02;
+    --secondary-color: #B22222;
+    --accent-color: #E25822;
+    --highlight-color: #F1BC31;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Baloo 2", sans-serif;
+}
+
+header {
+    background-color: var(--primary-color);
+}
+
+main {
+    background-color: var(--secondary-color);
+    flex: 1 0 auto;
+}
+
+footer {
+    background-color: var(--accent-color);
+}
