@@ -30,6 +30,11 @@ header {
 
 .navbar {
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand span {
+    font-family: "Baloo 2", sans-serif;
 }
 
 .brand-logo {
@@ -53,7 +58,43 @@ main {
 }
 
 footer {
-    background-color: var(--accent-color);
+    background-color: var(--primary-color);
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.footer-copyright {
+    font-size: 1rem;
+}
+
+.footer-copyright small {
+    font-size: 1.1rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.social-link {
+    color: white;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+}
+
+.social-link:hover {
+    background-color: var(--highlight-color);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .btn-light {
