@@ -5,6 +5,66 @@
     --secondary-color: #B22222;
     --accent-color: #E25822;
     --highlight-color: #F1BC31;
+    
+    /* Dark mode colors - High contrast */
+    --dark-bg: #000000;
+    --dark-secondary: #0f0f0f;
+    --dark-accent: #1a1a1a;
+    --dark-text: #ffffff;
+    --dark-muted: #888888;
+}
+
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+body.dark-mode header {
+    background-color: var(--dark-secondary);
+}
+
+body.dark-mode main {
+    background-color: var(--dark-accent);
+}
+
+body.dark-mode footer {
+    background-color: var(--dark-secondary);
+}
+
+body.dark-mode .menu-card {
+    background-color: var(--dark-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .menu-card:hover {
+    background-color: var(--dark-accent);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08), 0 4px 12px rgba(255, 255, 255, 0.06);
+}
+
+body.dark-mode .menu-card .card-title {
+    color: var(--highlight-color);
+}
+
+body.dark-mode .menu-card .text-muted {
+    color: var(--dark-muted) !important;
+}
+
+body.dark-mode h1 {
+    color: var(--dark-text);
+}
+
+body.dark-mode .weather-bar {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode input[type="search"]:focus {
+    border-color: var(--highlight-color);
+    box-shadow: 0 0 0 0.25rem rgba(241, 188, 49, 0.25);
+    outline: none;
 }
 
 * {
