@@ -62,7 +62,10 @@ function renderMenu(items) {
           <img src="${item.image}" class="card-img-top" alt="${item.name}">
         </div>
         <div class="card-body">
-          <h3 class="card-title mb-2">${item.name}</h3>
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <h3 class="card-title mb-0">${item.name}</h3>
+            <span class="badge bg-warning text-dark category-badge">${item.category}</span>
+          </div>
           <p class="card-text text-muted mb-3">${item.description}</p>
 
           <div class="compare-section">
