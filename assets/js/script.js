@@ -4,6 +4,38 @@ const menuContainer = document.getElementById('menu-container');
 const filterButtons = document.querySelectorAll('.filter-btn');
 const searchInput = document.querySelector('input[type="search"]');
 
+// OpenWeatherMap
+const WEATHER_API_KEY = '9563c0e75eaf848ae6d47c6466b58aaf';
+const WEATHER_CITY = 'London,uk';
+const weatherContentEl = document.getElementById('weather-content');
+
+async function fetchLondonWeather() {
+  try {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${WEATHER_CITY}&APPID=${WEATHER_API_KEY}&units=metric`;
+    const response = await fetch(url);
+    const data = await response.json();
+    if (data.cod === 200 || data.cod === "200") {
+      renderWeather(data);
+    } else {
+      weatherContentEl.textContent = 'Weather unavailable';
+      console.error('Weather API Error:', data);
+    }
+  } catch (error) {
+    weatherContentEl.textContent = 'Weather unavailable';
+    console.error('Weather fetch error:', error);
+  }
+}
+
+function renderWeather(data) {
+  const temp = Math.round(data.main.temp);
+  const desc = data.weather[0].main;
+  const text = `London: ${temp}°C, ${desc}`;
+  // Single marquee text moving across the bar
+  weatherContentEl.innerHTML = `
+      <span class="weather-text">${text}</span>
+  `;
+}
+
 const EXCHANGE_API_KEY = '8126c0d3f19969698e9e0554';
 const BASE_CURRENCY = 'GBP'; // Başlangıç currency
 let exchangeRates = {}; // API’den gelen oranlar burada saklanacak
@@ -144,6 +176,7 @@ searchInput.addEventListener('input', () => {
 async function init() {
   await fetchExchangeRates();
   renderMenu(menuItems);
+  fetchLondonWeather();
 }
 
 init();

@@ -28,6 +28,37 @@ header {
     background-color: var(--primary-color);
 }
 
+.weather-bar {
+    background: rgba(0, 0, 0, 0.15);
+    color: white;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.weather-content {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    font-size: 14px;
+}
+
+.weather-text {
+    display: inline-block;
+    white-space: nowrap;
+    will-change: transform;
+    animation: weather-marquee-single 20s linear infinite;
+}
+
+@keyframes weather-marquee-single {
+    0%   { transform: translateX(100vw); }
+    100% { transform: translateX(-100%); }
+}
+
+.weather-content i {
+    color: var(--highlight-color);
+    font-size: 18px;
+}
+
 .navbar {
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
