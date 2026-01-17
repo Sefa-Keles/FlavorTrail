@@ -37,14 +37,14 @@
                     </button>
                 </div>
                 <div class="d-flex justify-content-center flex-wrap gap-2 mt-4">
-                    <button class="btn btn-light" type="button">All</button>
-                    <button class="btn btn-outline-light" type="button">Meals</button>
-                    <button class="btn btn-outline-light" type="button">Salads</button>
-                    <button class="btn btn-outline-light" type="button">Desserts</button>
-                    <button class="btn btn-outline-light" type="button">Drinks</button>
+                    <button class="btn btn-light filter-btn" type="button" data-category="All">All</button>
+                    <button class="btn btn-outline-light filter-btn" type="button" data-category="Meal">Meals</button>
+                    <button class="btn btn-outline-light filter-btn" type="button" data-category="Salad">Salads</button>
+                    <button class="btn btn-outline-light filter-btn" type="button" data-category="Dessert">Desserts</button>
+                    <button class="btn btn-outline-light filter-btn" type="button" data-category="Drink">Drinks</button>
                 </div>
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4">
-                    <div class="col">
+                <div id="menu-container" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4">
+                    <!-- <div class="col">
                         <div class="card h-100 menu-card">
                             <div class="ratio ratio-4x3">
                                 <img src="assets/images/doner.png" class="card-img-top" alt="Doner kebab">
@@ -549,8 +549,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
+                    </div> -->
+                    <!-- <div class="col">
                         <div class="card h-100 menu-card">
                             <div class="ratio ratio-4x3">
                                 <img src="assets/images/kahve.png" class="card-img-top" alt="Kahve">
@@ -651,7 +651,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
@@ -680,5 +680,6 @@
             </div>
         </div>
     </footer>
+    <script type="module" src="assets/js/script.js"></script>
 </body>
 </html>
