@@ -2,6 +2,8 @@ import { menuItems } from './data.js';
 
 const menuContainer = document.getElementById('menu-container');
 const filterButtons = document.querySelectorAll('.filter-btn');
+const searchInput = document.querySelector('input[type="search"]');
+
 
 function renderMenu(items) {
   menuContainer.innerHTML = '';
@@ -41,12 +43,7 @@ function renderMenu(items) {
                     Currency
                   </button>
 
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">USD</a></li>
-                    <li><a class="dropdown-item" href="#">EUR</a></li>
-                    <li><a class="dropdown-item" href="#">GBP</a></li>
-                    <li><a class="dropdown-item" href="#">SAR</a></li>
-                  </ul>
+                  <ul class="dropdown-menu"></ul>
                 </div>
               </div>
 
@@ -74,16 +71,42 @@ renderMenu(menuItems);
 filterButtons.forEach(button => {
   button.addEventListener('click', () => {
     const category = button.dataset.category;
-    const filteredItems =
-      category === 'All'
-        ? menuItems
-        : menuItems.filter(item => item.category === category);
+
+    let filteredItems =
+      category === 'All' ? menuItems : menuItems.filter(item => item.category === category);
+
+    const searchTerm = searchInput.value.toLowerCase();
+    if (searchTerm) {
+      filteredItems = filteredItems.filter(item =>
+        item.name.toLowerCase().includes(searchTerm) ||
+        item.description.toLowerCase().includes(searchTerm)
+      );
+    }
 
     renderMenu(filteredItems);
 
-    // Buton aktiflik durumu
     filterButtons.forEach(btn => btn.classList.remove('active'));
     button.classList.add('active');
   });
 });
+
+searchInput.addEventListener('input', () => {
+  const searchTerm = searchInput.value.toLowerCase();
+
+  const activeButton = document.querySelector('.filter-btn.active');
+  const category = activeButton ? activeButton.dataset.category : 'All';
+
+  let filteredItems =
+    category === 'All' ? menuItems : menuItems.filter(item => item.category === category);
+
+  if (searchTerm) {
+    filteredItems = filteredItems.filter(item =>
+      item.name.toLowerCase().includes(searchTerm) ||
+      item.description.toLowerCase().includes(searchTerm)
+    );
+  }
+
+  renderMenu(filteredItems);
+});
+
 
