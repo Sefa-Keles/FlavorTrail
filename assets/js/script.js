@@ -1,14 +1,37 @@
 import { menuItems } from './data.js';
 
+// ============================================
+// DOM ELEMENT REFERENCES
+// ============================================
+
+/** Menu container where menu cards will be rendered */
 const menuContainer = document.getElementById('menu-container');
+
+/** Filter buttons for category filtering (All, Meals, Salads, Desserts, Drinks) */
 const filterButtons = document.querySelectorAll('.filter-btn');
+
+/** Search input for filtering menu items by name or description */
 const searchInput = document.querySelector('input[type="search"]');
 
-// OpenWeatherMap
+// ============================================
+// WEATHER API CONFIGURATION
+// ============================================
+
+/** OpenWeatherMap API key */
 const WEATHER_API_KEY = '9563c0e75eaf848ae6d47c6466b58aaf';
+
+/** City for weather data (London, UK) */
 const WEATHER_CITY = 'London,uk';
+
+/** Weather content container element */
 const weatherContentEl = document.getElementById('weather-content');
 
+/**
+ * Fetches current weather data for London from OpenWeatherMap API
+ * Uses metric units for temperature display
+ * Handles API errors gracefully by displaying fallback message
+ * @async
+ */
 async function fetchLondonWeather() {
   try {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${WEATHER_CITY}&APPID=${WEATHER_API_KEY}&units=metric`;
@@ -26,6 +49,15 @@ async function fetchLondonWeather() {
   }
 }
 
+/**
+ * Renders weather data into the weather bar with marquee animation
+ * Creates a single scrolling text element showing temperature and condition
+ * @param {Object} data - Weather data from OpenWeatherMap API
+ * @param {Object} data.main - Main weather data
+ * @param {number} data.main.temp - Temperature in Celsius
+ * @param {Array} data.weather - Weather conditions array
+ * @param {string} data.weather[0].main - Main weather condition (e.g., "Clouds", "Clear")
+ */
 function renderWeather(data) {
   const temp = Math.round(data.main.temp);
   const desc = data.weather[0].main;
@@ -36,10 +68,24 @@ function renderWeather(data) {
   `;
 }
 
-const EXCHANGE_API_KEY = '8126c0d3f19969698e9e0554';
-const BASE_CURRENCY = 'GBP'; // Başlangıç currency
-let exchangeRates = {}; // API’den gelen oranlar burada saklanacak
+// ============================================
+// CURRENCY EXCHANGE API CONFIGURATION
+// ============================================
 
+/** ExchangeRate API key */
+const EXCHANGE_API_KEY = '8126c0d3f19969698e9e0554';
+
+/** Base currency for conversions (British Pound) */
+const BASE_CURRENCY = 'GBP';
+
+/** Object storing exchange rates from API {currency: rate} */
+let exchangeRates = {};
+
+/**
+ * Fetches latest exchange rates from ExchangeRate API
+ * Stores conversion rates in exchangeRates object
+ * @async
+ */
 async function fetchExchangeRates() {
   try {
     const response = await fetch(`https://v6.exchangerate-api.com/v6/${EXCHANGE_API_KEY}/latest/${BASE_CURRENCY}`);
@@ -50,6 +96,24 @@ async function fetchExchangeRates() {
   }
 }
 
+/**
+ * Renders menu items as Bootstrap cards in the menu container
+ * Each card includes:
+ * - Item image with 4:3 ratio
+ * - Name and category badge
+ * - Description
+ * - Price in GBP
+ * - Currency conversion dropdown with search functionality
+ * - Converted price display
+ * 
+ * @param {Array} items - Array of menu item objects to render
+ * @param {number} items[].id - Item ID
+ * @param {string} items[].name - Item name
+ * @param {string} items[].category - Item category (Meal, Salad, Dessert, Drink)
+ * @param {string} items[].description - Item description
+ * @param {number} items[].price - Item price in GBP
+ * @param {string} items[].image - Path to item image
+ */
 function renderMenu(items) {
   menuContainer.innerHTML = '';
 
@@ -104,41 +168,51 @@ function renderMenu(items) {
 
     if (dropdownToggleEl) {
       dropdownToggleEl.addEventListener('shown.bs.dropdown', () => {
+        // Add dropdown-open class to ensure card stays on top (higher z-index)
         menuCardEl.classList.add('dropdown-open');
         const input = currencyList.querySelector('.dropdown-search');
+        // Auto-focus search input when dropdown opens
         if (input) input.focus();
       });
       dropdownToggleEl.addEventListener('hidden.bs.dropdown', () => {
+        // Remove dropdown-open class when dropdown closes
         menuCardEl.classList.remove('dropdown-open');
       });
     }
 
-    // Arama inputunu ekle (dropdown başında)
+    // Create and add search input at the top of dropdown (sticky position)
     const searchItem = document.createElement('li');
     searchItem.classList.add('search-item', 'px-2', 'py-2');
     searchItem.innerHTML = `<input type="text" class="form-control form-control-sm dropdown-search" placeholder="Search currency..." aria-label="Search currency">`;
     currencyList.appendChild(searchItem);
     const dropdownSearchInput = searchItem.querySelector('.dropdown-search');
 
+    // Sort currencies alphabetically and populate dropdown
     const sortedCurrencies = Object.keys(exchangeRates).sort();
     sortedCurrencies.forEach(curr => {
       const li = document.createElement('li');
       li.classList.add('currency-option');
       li.innerHTML = `<a class="dropdown-item" href="#">${curr}</a>`;
+      
+      // Click handler to convert price to selected currency
       li.addEventListener('click', (e) => {
         e.preventDefault();
         const selectedCurrency = curr;
+        // Get base price from data attribute
         const basePrice = parseFloat(card.querySelector('.price').dataset.base);
+        // Calculate converted price using exchange rate
         const convertedPrice = (basePrice * exchangeRates[selectedCurrency]).toFixed(2);
+        // Update UI with converted price and currency code
         card.querySelector('.compare-value').textContent = `${convertedPrice} ${selectedCurrency}`;
         card.querySelector('.compare-dropdown').textContent = selectedCurrency;
       });
       currencyList.appendChild(li);
     });
 
-    // Dropdown içinde arama filtresi
+    // Live search filter for currency dropdown
     dropdownSearchInput.addEventListener('input', () => {
       const term = dropdownSearchInput.value.toLowerCase();
+      // Show/hide currency options based on search term
       currencyList.querySelectorAll('li.currency-option').forEach(li => {
         const text = li.textContent.toLowerCase();
         li.style.display = text.includes(term) ? '' : 'none';
@@ -147,12 +221,21 @@ function renderMenu(items) {
   });
 }
 
+/**
+ * Filters and renders menu items based on active category and search term
+ * First filters by category (if not "All"), then by search input text
+ * Updates the menu display with filtered results
+ */
 function filterAndRender() {
+  // Get active category from filter buttons
   const activeButton = document.querySelector('.filter-btn.active');
   const category = activeButton ? activeButton.dataset.category : 'All';
+  
+  // Filter by category
   let filteredItems =
     category === 'All' ? menuItems : menuItems.filter(item => item.category === category);
 
+  // Further filter by search term (name or description)
   const searchTerm = searchInput.value.toLowerCase();
   if (searchTerm) {
     filteredItems = filteredItems.filter(item =>

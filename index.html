@@ -1,30 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Character encoding and viewport settings for responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Fontawesome CDN-->
+    
+    <!-- Font Awesome CDN - provides icon library for UI elements -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!--Bootstrap 5-->
+    
+    <!-- Bootstrap 5 CSS - provides responsive grid and component styling -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!--Stylesheet-->
+    
+    <!-- Custom stylesheet - contains all custom styles and dark mode -->
     <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Favicon - website icon shown in browser tab -->
     <link rel="icon" href="assets/images/logo.png" type="image/png" sizes="32x32">
+    
     <title>Flavor Trail | Home</title>
 </head>
 <body>
+    <!-- HEADER SECTION -->
     <header>
+        <!-- Weather bar - displays London weather with scrolling marquee animation -->
         <div class="weather-bar">
             <div class="container-fluid px-0">
+                <!-- Weather content container - populated dynamically via JavaScript -->
                 <div id="weather-content" class="weather-content">Loading London weather...</div>
             </div>
         </div>
+        
+        <!-- Main navigation bar -->
         <nav class="navbar navbar-expand-lg navbar-dark py-0">
             <div class="container d-flex align-items-center justify-content-between">
+                <!-- Brand logo and text -->
                 <a class="navbar-brand d-flex align-items-center" href="#">
                     <img src="assets/images/logo.png" alt="FlavorTrail logo" class="brand-logo me-2">
                     <span class="fw-bold fs-2">Flavor Trail</span>
                 </a>
+                
+                <!-- Dark/Light mode toggle button - switches theme and saves preference to localStorage -->
                 <button class="btn btn-outline-light dark-toggle" type="button" aria-label="Dark mode toggle">
                     <i class="fa-solid fa-moon"></i>
                 </button>
@@ -32,16 +47,23 @@
         </nav>
     </header>
 
+    <!-- MAIN CONTENT SECTION -->
     <main>
         <section class="py-5">
             <div class="container">
+                <!-- Page title -->
                 <h1 class="display-5 fw-bold mb-4">Discover the flavors of Turkish Cousine</h1>
+                
+                <!-- Search bar - filters menu items by name or description -->
                 <div class="input-group input-group-lg">
                     <input type="search" class="form-control" placeholder="Search dishes..." aria-label="Search dishes">
+                    <!-- Optional search button (currently commented out) -->
                     <!-- <button class="btn search-btn" type="button" aria-label="Search">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button> -->
                 </div>
+                
+                <!-- Category filter buttons - filter menu items by category (All/Meals/Salads/Desserts/Drinks) -->
                 <div class="d-flex justify-content-center flex-wrap gap-2 mt-4">
                     <button class="btn btn-light filter-btn" type="button" data-category="All">All</button>
                     <button class="btn btn-outline-light filter-btn" type="button" data-category="Meal">Meals</button>
@@ -49,626 +71,23 @@
                     <button class="btn btn-outline-light filter-btn" type="button" data-category="Dessert">Desserts</button>
                     <button class="btn btn-outline-light filter-btn" type="button" data-category="Drink">Drinks</button>
                 </div>
-                <div id="menu-container" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4">
-                    <!-- <div class="col">
-                        <div class="card h-100 menu-card">
-                            <div class="ratio ratio-4x3">
-                                <img src="assets/images/doner.png" class="card-img-top" alt="Doner kebab">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title mb-2">Doner Kebab</h3>
-                                <p class="card-text text-muted mb-3">Thin-sliced beef, lavash, tomatoes, pickles, sumac onions.</p>
-                                <div class="compare-section">
-                                    <div class="text-end mb-2">
-                                        <span class="fw-bold text-primary">Price : £ 185</span>
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap gap-2 mt-2 compare-row">
-                                        <small class="text-light mb-0 compare-label">Select Currency :</small>
-                                        <div class="dropdown">
-                                            <button class="btn btn-sm btn-outline-light dropdown-toggle compare-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Currency
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">USD</a></li>
-                                                <li><a class="dropdown-item" href="#">EUR</a></li>
-                                                <li><a class="dropdown-item" href="#">GBP</a></li>
-                                                <li><a class="dropdown-item" href="#">SAR</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2 compare-result mt-1">
-                                        <small class="text-light mb-0 compare-label">Compared Price :</small>
-                                        <span class="text-light small compare-value">0.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 menu-card">
-                            <div class="ratio ratio-4x3">
-                                <img src="assets/images/iskender.png" class="card-img-top" alt="Iskender kebab">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title mb-2">Iskender</h3>
-                                <p class="card-text text-muted mb-3">Butter-toasted pita, lamb slices, yogurt, tomato sauce, pepper.</p>
-                                <div class="compare-section">
-                                    <div class="text-end mb-2">
-                                        <span class="fw-bold text-primary">Price : £ 210</span>
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap gap-2 mt-2 compare-row">
-                                        <small class="text-light mb-0 compare-label">Select Currency :</small>
-                                        <div class="dropdown">
-                                            <button class="btn btn-sm btn-outline-light dropdown-toggle compare-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Currency
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">USD</a></li>
-                                                <li><a class="dropdown-item" href="#">EUR</a></li>
-                                                <li><a class="dropdown-item" href="#">GBP</a></li>
-                                                <li><a class="dropdown-item" href="#">SAR</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2 compare-result mt-1">
-                                        <small class="text-light mb-0 compare-label">Compared Price :</small>
-                                        <span class="text-light small compare-value">0.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 menu-card">
-                            <div class="ratio ratio-4x3">
-                                <img src="assets/images/lahmacun.jpg" class="card-img-top" alt="Lahmacun">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title mb-2">Lahmacun</h3>
-                                <p class="card-text text-muted mb-3">Crisp flatbread, minced lamb, parsley, tomato, lemon wedge.</p>
-                                <div class="compare-section">
-                                    <div class="text-end mb-2">
-                                        <span class="fw-bold text-primary">Price : £ 95</span>
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap gap-2 mt-2 compare-row">
-                                        <small class="text-light mb-0 compare-label">Select Currency :</small>
-                                        <div class="dropdown">
-                                            <button class="btn btn-sm btn-outline-light dropdown-toggle compare-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Currency
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">USD</a></li>
-                                                <li><a class="dropdown-item" href="#">EUR</a></li>
-                                                <li><a class="dropdown-item" href="#">GBP</a></li>
-                                                <li><a class="dropdown-item" href="#">SAR</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2 compare-result mt-1">
-                                        <small class="text-light mb-0 compare-label">Compared Price :</small>
-                                        <span class="text-light small compare-value">0.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 menu-card">
-                            <div class="ratio ratio-4x3">
-                                <img src="assets/images/beyti.png" class="card-img-top" alt="Beyti kebab">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title mb-2">Beyti</h3>
-                                <p class="card-text text-muted mb-3">Grilled ground lamb, lavash wrap, garlic yogurt, chili butter.</p>
-                                <div class="compare-section">
-                                    <div class="text-end mb-2">
-                                        <span class="fw-bold text-primary">Price : £ 195</span>
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap gap-2 mt-2 compare-row">
-                                        <small class="text-light mb-0 compare-label">Select Currency :</small>
-                                        <div class="dropdown">
-                                            <button class="btn btn-sm btn-outline-light dropdown-toggle compare-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Currency
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">USD</a></li>
-                                                <li><a class="dropdown-item" href="#">EUR</a></li>
-                                                <li><a class="dropdown-item" href="#">GBP</a></li>
-                                                <li><a class="dropdown-item" href="#">SAR</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2 compare-result mt-1">
-                                        <small class="text-light mb-0 compare-label">Compared Price :</small>
-                                        <span class="text-light small compare-value">0.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 menu-card">
-                            <div class="ratio ratio-4x3">
-                                <img src="assets/images/menemen.png" class="card-img-top" alt="Menemen">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title mb-2">Menemen</h3>
-                                <p class="card-text text-muted mb-3">Eggs, tomatoes, peppers, olive oil, mild spices, fresh herbs.</p>
-                                <div class="compare-section">
-                                    <div class="text-end mb-2">
-                                        <span class="fw-bold text-primary">Price : £ 120</span>
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap gap-2 mt-2 compare-row">
-                                        <small class="text-light mb-0 compare-label">Select Currency :</small>
-                                        <div class="dropdown">
-                                            <button class="btn btn-sm btn-outline-light dropdown-toggle compare-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Currency
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">USD</a></li>
-                                                <li><a class="dropdown-item" href="#">EUR</a></li>
-                                                <li><a class="dropdown-item" href="#">GBP</a></li>
-                                                <li><a class="dropdown-item" href="#">SAR</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2 compare-result mt-1">
-                                        <small class="text-light mb-0 compare-label">Compared Price :</small>
-                                        <span class="text-light small compare-value">0.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 menu-card">
-                            <div class="ratio ratio-4x3">
-                                <img src="assets/images/gavurdagi_salad.png" class="card-img-top" alt="Gavurdagi salad">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title mb-2">Gavurdagi Salad</h3>
-                                <p class="card-text text-muted mb-3">Tomatoes, cucumber, walnuts, pomegranate molasses, sumac.</p>
-                                <div class="compare-section">
-                                    <div class="text-end mb-2">
-                                        <span class="fw-bold text-primary">Price : £ 85</span>
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap gap-2 mt-2 compare-row">
-                                        <small class="text-light mb-0 compare-label">Select Currency :</small>
-                                        <div class="dropdown">
-                                            <button class="btn btn-sm btn-outline-light dropdown-toggle compare-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Currency
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">USD</a></li>
-                                                <li><a class="dropdown-item" href="#">EUR</a></li>
-                                                <li><a class="dropdown-item" href="#">GBP</a></li>
-                                                <li><a class="dropdown-item" href="#">SAR</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2 compare-result mt-1">
-                                        <small class="text-light mb-0 compare-label">Compared Price :</small>
-                                        <span class="text-light small compare-value">0.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 menu-card">
-                            <div class="ratio ratio-4x3">
-                                <img src="assets/images/baklava.png" class="card-img-top" alt="Baklava">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title mb-2">Baklava</h3>
-                                <p class="card-text text-muted mb-3">Phyllo layers, pistachio, butter syrup, crushed nuts garnish.</p>
-                                <div class="text-end">
-                                    <span class="fw-bold text-primary">Price : £ 70</span>
-                                </div>
-                                <div class="d-flex align-items-center flex-wrap gap-2 mt-2 compare-row">
-                                    <small class="text-light mb-0 compare-label">Select Currency :</small>
-                                    <div class="dropdown">
-                                        <button class="btn btn-sm btn-outline-light dropdown-toggle compare-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Currency
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">USD</a></li>
-                                            <li><a class="dropdown-item" href="#">EUR</a></li>
-                                            <li><a class="dropdown-item" href="#">GBP</a></li>
-                                            <li><a class="dropdown-item" href="#">SAR</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center gap-2 compare-result mt-1">
-                                    <small class="text-light mb-0 compare-label">Compared Price :</small>
-                                    <span class="text-light small compare-value">0.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 menu-card">
-                            <div class="ratio ratio-4x3">
-                                <img src="assets/images/salep.png" class="card-img-top" alt="Salep">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title mb-2">Salep</h3>
-                                <p class="card-text text-muted mb-3">Orchid root powder, milk, cinnamon dust, creamy texture.</p>
-                                <div class="text-end">
-                                    <span class="fw-bold text-primary">Price : £ 60</span>
-                                </div>
-                                <div class="d-flex align-items-center flex-wrap gap-2 mt-2 compare-row">
-                                    <small class="text-light mb-0 compare-label">Select Currency :</small>
-                                    <div class="dropdown">
-                                        <button class="btn btn-sm btn-outline-light dropdown-toggle compare-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Currency
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">USD</a></li>
-                                            <li><a class="dropdown-item" href="#">EUR</a></li>
-                                            <li><a class="dropdown-item" href="#">GBP</a></li>
-                                            <li><a class="dropdown-item" href="#">SAR</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center gap-2 compare-result mt-1">
-                                    <small class="text-light mb-0 compare-label">Compared Price :</small>
-                                    <span class="text-light small compare-value">0.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 menu-card">
-                            <div class="ratio ratio-4x3">
-                                <img src="assets/images/pide.jpg" class="card-img-top" alt="Pide">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title mb-2">Pide</h3>
-                                <p class="card-text text-muted mb-3">Turkish flatbread, mozzarella cheese, egg, butter, sesame seeds.</p>
-                                <div class="compare-section">
-                                    <div class="text-end mb-2">
-                                        <span class="fw-bold text-primary">Price : £ 140</span>
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap gap-2 mt-2 compare-row">
-                                        <small class="text-light mb-0 compare-label">Select Currency :</small>
-                                        <div class="dropdown">
-                                            <button class="btn btn-sm btn-outline-light dropdown-toggle compare-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Currency
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">USD</a></li>
-                                                <li><a class="dropdown-item" href="#">EUR</a></li>
-                                                <li><a class="dropdown-item" href="#">GBP</a></li>
-                                                <li><a class="dropdown-item" href="#">SAR</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2 compare-result mt-1">
-                                        <small class="text-light mb-0 compare-label">Compared Price :</small>
-                                        <span class="text-light small compare-value">0.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 menu-card">
-                            <div class="ratio ratio-4x3">
-                                <img src="assets/images/kofte.jpg" class="card-img-top" alt="Kofte">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title mb-2">Kofte</h3>
-                                <p class="card-text text-muted mb-3">Grilled meatballs, ground beef, onions, herbs, spices, charcoal.</p>
-                                <div class="compare-section">
-                                    <div class="text-end mb-2">
-                                        <span class="fw-bold text-primary">Price : £ 165</span>
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap gap-2 mt-2 compare-row">
-                                        <small class="text-light mb-0 compare-label">Select Currency :</small>
-                                        <div class="dropdown">
-                                            <button class="btn btn-sm btn-outline-light dropdown-toggle compare-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Currency
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">USD</a></li>
-                                                <li><a class="dropdown-item" href="#">EUR</a></li>
-                                                <li><a class="dropdown-item" href="#">GBP</a></li>
-                                                <li><a class="dropdown-item" href="#">SAR</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2 compare-result mt-1">
-                                        <small class="text-light mb-0 compare-label">Compared Price :</small>
-                                        <span class="text-light small compare-value">0.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 menu-card">
-                            <div class="ratio ratio-4x3">
-                                <img src="assets/images/mix_salad.png" class="card-img-top" alt="Mix Salad">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title mb-2">Mix Salad</h3>
-                                <p class="card-text text-muted mb-3">Fresh greens, tomatoes, cucumber, carrots, olive oil, lemon.</p>
-                                <div class="compare-section">
-                                    <div class="text-end mb-2">
-                                        <span class="fw-bold text-primary">Price : £ 75</span>
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap gap-2 mt-2 compare-row">
-                                        <small class="text-light mb-0 compare-label">Select Currency :</small>
-                                        <div class="dropdown">
-                                            <button class="btn btn-sm btn-outline-light dropdown-toggle compare-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Currency
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">USD</a></li>
-                                                <li><a class="dropdown-item" href="#">EUR</a></li>
-                                                <li><a class="dropdown-item" href="#">GBP</a></li>
-                                                <li><a class="dropdown-item" href="#">SAR</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2 compare-result mt-1">
-                                        <small class="text-light mb-0 compare-label">Compared Price :</small>
-                                        <span class="text-light small compare-value">0.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 menu-card">
-                            <div class="ratio ratio-4x3">
-                                <img src="assets/images/fruit_salad.png" class="card-img-top" alt="Fruit Salad">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title mb-2">Fruit Salad</h3>
-                                <p class="card-text text-muted mb-3">Seasonal fruits, watermelon, melon, grapes, strawberries, mint.</p>
-                                <div class="compare-section">
-                                    <div class="text-end mb-2">
-                                        <span class="fw-bold text-primary">Price : £ 80</span>
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap gap-2 mt-2 compare-row">
-                                        <small class="text-light mb-0 compare-label">Select Currency :</small>
-                                        <div class="dropdown">
-                                            <button class="btn btn-sm btn-outline-light dropdown-toggle compare-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Currency
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">USD</a></li>
-                                                <li><a class="dropdown-item" href="#">EUR</a></li>
-                                                <li><a class="dropdown-item" href="#">GBP</a></li>
-                                                <li><a class="dropdown-item" href="#">SAR</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2 compare-result mt-1">
-                                        <small class="text-light mb-0 compare-label">Compared Price :</small>
-                                        <span class="text-light small compare-value">0.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 menu-card">
-                            <div class="ratio ratio-4x3">
-                                <img src="assets/images/kunefe.png" class="card-img-top" alt="Kunefe">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title mb-2">Kunefe</h3>
-                                <p class="card-text text-muted mb-3">Shredded pastry, melted cheese, sugar syrup, pistachio topping.</p>
-                                <div class="compare-section">
-                                    <div class="text-end mb-2">
-                                        <span class="fw-bold text-primary">Price : £ 90</span>
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap gap-2 mt-2 compare-row">
-                                        <small class="text-light mb-0 compare-label">Select Currency :</small>
-                                        <div class="dropdown">
-                                            <button class="btn btn-sm btn-outline-light dropdown-toggle compare-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Currency
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">USD</a></li>
-                                                <li><a class="dropdown-item" href="#">EUR</a></li>
-                                                <li><a class="dropdown-item" href="#">GBP</a></li>
-                                                <li><a class="dropdown-item" href="#">SAR</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2 compare-result mt-1">
-                                        <small class="text-light mb-0 compare-label">Compared Price :</small>
-                                        <span class="text-light small compare-value">0.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 menu-card">
-                            <div class="ratio ratio-4x3">
-                                <img src="assets/images/sutlac.png" class="card-img-top" alt="Sutlac">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title mb-2">Sutlac</h3>
-                                <p class="card-text text-muted mb-3">Rice pudding, milk, sugar, rice, cinnamon, vanilla essence.</p>
-                                <div class="compare-section">
-                                    <div class="text-end mb-2">
-                                        <span class="fw-bold text-primary">Price : £ 55</span>
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap gap-2 mt-2 compare-row">
-                                        <small class="text-light mb-0 compare-label">Select Currency :</small>
-                                        <div class="dropdown">
-                                            <button class="btn btn-sm btn-outline-light dropdown-toggle compare-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Currency
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">USD</a></li>
-                                                <li><a class="dropdown-item" href="#">EUR</a></li>
-                                                <li><a class="dropdown-item" href="#">GBP</a></li>
-                                                <li><a class="dropdown-item" href="#">SAR</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2 compare-result mt-1">
-                                        <small class="text-light mb-0 compare-label">Compared Price :</small>
-                                        <span class="text-light small compare-value">0.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 menu-card">
-                            <div class="ratio ratio-4x3">
-                                <img src="assets/images/cay.png" class="card-img-top" alt="Cay">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title mb-2">Turkish Tea</h3>
-                                <p class="card-text text-muted mb-3">Black tea, hot water, sugar cubes, traditional tulip glass.</p>
-                                <div class="compare-section">
-                                    <div class="text-end mb-2">
-                                        <span class="fw-bold text-primary">Price : £ 15</span>
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap gap-2 mt-2 compare-row">
-                                        <small class="text-light mb-0 compare-label">Select Currency :</small>
-                                        <div class="dropdown">
-                                            <button class="btn btn-sm btn-outline-light dropdown-toggle compare-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Currency
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">USD</a></li>
-                                                <li><a class="dropdown-item" href="#">EUR</a></li>
-                                                <li><a class="dropdown-item" href="#">GBP</a></li>
-                                                <li><a class="dropdown-item" href="#">SAR</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2 compare-result mt-1">
-                                        <small class="text-light mb-0 compare-label">Compared Price :</small>
-                                        <span class="text-light small compare-value">0.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- <div class="col">
-                        <div class="card h-100 menu-card">
-                            <div class="ratio ratio-4x3">
-                                <img src="assets/images/kahve.png" class="card-img-top" alt="Kahve">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title mb-2">Turkish Coffee</h3>
-                                <p class="card-text text-muted mb-3">Finely ground coffee, water, sugar, traditional copper pot.</p>
-                                <div class="compare-section">
-                                    <div class="text-end mb-2">
-                                        <span class="fw-bold text-primary">Price : £ 35</span>
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap gap-2 mt-2 compare-row">
-                                        <small class="text-light mb-0 compare-label">Select Currency :</small>
-                                        <div class="dropdown">
-                                            <button class="btn btn-sm btn-outline-light dropdown-toggle compare-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Currency
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">USD</a></li>
-                                                <li><a class="dropdown-item" href="#">EUR</a></li>
-                                                <li><a class="dropdown-item" href="#">GBP</a></li>
-                                                <li><a class="dropdown-item" href="#">SAR</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2 compare-result mt-1">
-                                        <small class="text-light mb-0 compare-label">Compared Price :</small>
-                                        <span class="text-light small compare-value">0.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 menu-card">
-                            <div class="ratio ratio-4x3">
-                                <img src="assets/images/ayran.png" class="card-img-top" alt="Ayran">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title mb-2">Ayran</h3>
-                                <p class="card-text text-muted mb-3">Yogurt drink, water, salt, fresh yogurt, cold beverage.</p>
-                                <div class="compare-section">
-                                    <div class="text-end mb-2">
-                                        <span class="fw-bold text-primary">Price : £ 25</span>
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap gap-2 mt-2 compare-row">
-                                        <small class="text-light mb-0 compare-label">Select Currency :</small>
-                                        <div class="dropdown">
-                                            <button class="btn btn-sm btn-outline-light dropdown-toggle compare-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Currency
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">USD</a></li>
-                                                <li><a class="dropdown-item" href="#">EUR</a></li>
-                                                <li><a class="dropdown-item" href="#">GBP</a></li>
-                                                <li><a class="dropdown-item" href="#">SAR</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2 compare-result mt-1">
-                                        <small class="text-light mb-0 compare-label">Compared Price :</small>
-                                        <span class="text-light small compare-value">0.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 menu-card">
-                            <div class="ratio ratio-4x3">
-                                <img src="assets/images/sherbet.png" class="card-img-top" alt="Sherbet">
-                            </div>
-                            <div class="card-body">
-                                <h3 class="card-title mb-2">Sherbet</h3>
-                                <p class="card-text text-muted mb-3">Sweet fruit drink, rose water, sugar, lemon, ice cubes.</p>
-                                <div class="compare-section">
-                                    <div class="text-end mb-2">
-                                        <span class="fw-bold text-primary">Price : £ 30</span>
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap gap-2 mt-2 compare-row">
-                                        <small class="text-light mb-0 compare-label">Select Currency :</small>
-                                        <div class="dropdown">
-                                            <button class="btn btn-sm btn-outline-light dropdown-toggle compare-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Currency
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">USD</a></li>
-                                                <li><a class="dropdown-item" href="#">EUR</a></li>
-                                                <li><a class="dropdown-item" href="#">GBP</a></li>
-                                                <li><a class="dropdown-item" href="#">SAR</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2 compare-result mt-1">
-                                        <small class="text-light mb-0 compare-label">Compared Price :</small>
-                                        <span class="text-light small compare-value">0.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
+                
+                <!-- Menu items container - populated dynamically by JavaScript with menu cards -->
+                <div id="menu-container" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4"></div>
             </div>
         </section>
     </main>
 
+    <!-- FOOTER SECTION -->
     <footer class="py-4">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <!-- Copyright information -->
                 <div class="footer-copyright">
                     <small class="text-white">&copy; 2026 - All rights reserved</small>
                 </div>
+                
+                <!-- Social media links -->
                 <div class="footer-social">
                     <a href="https://www.facebook.com" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
                         <i class="fa-brands fa-facebook"></i>
@@ -687,8 +106,10 @@
         </div>
     </footer>
 
-    <!--Bootstrap 5 JS Bundle-->
+    <!-- Bootstrap 5 JavaScript Bundle - includes Popper for dropdowns and tooltips -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <!-- Main JavaScript module - handles menu rendering, filters, currency conversion, weather, and dark mode -->
     <script type="module" src="assets/js/script.js"></script>
 </body>
 </html>

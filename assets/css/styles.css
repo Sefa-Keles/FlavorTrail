@@ -1,84 +1,110 @@
+/* Import Google Fonts - Baloo 2 for headings, Roboto for body text */
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* CSS Custom Properties (Variables) */
 :root {
-    --primary-color: #7C0A02;
-    --secondary-color: #B22222;
-    --accent-color: #E25822;
-    --highlight-color: #F1BC31;
+    /* Light mode color palette - Turkish cuisine inspired red/orange tones */
+    --primary-color: #7C0A02;      /* Deep red for header/footer */
+    --secondary-color: #B22222;     /* Firebrick red for main background */
+    --accent-color: #E25822;        /* Orange accent for cards */
+    --highlight-color: #F1BC31;     /* Gold/yellow for highlights and CTAs */
     
-    /* Dark mode colors - High contrast */
-    --dark-bg: #000000;
-    --dark-secondary: #0f0f0f;
-    --dark-accent: #1a1a1a;
-    --dark-text: #ffffff;
-    --dark-muted: #888888;
+    /* Dark mode color palette - High contrast black theme */
+    --dark-bg: #000000;             /* Pure black background */
+    --dark-secondary: #0f0f0f;      /* Very dark gray for header/footer */
+    --dark-accent: #1a1a1a;         /* Dark gray for cards */
+    --dark-text: #ffffff;           /* White text */
+    --dark-muted: #888888;          /* Gray for muted text */
 }
 
+/* ============================================
+   DARK MODE STYLES
+   ============================================ */
+
+/* Smooth color transitions for theme switching */
 body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Dark mode body - activated by .dark-mode class */
 body.dark-mode {
     background-color: var(--dark-bg);
     color: var(--dark-text);
 }
 
+/* Dark mode header styling */
 body.dark-mode header {
     background-color: var(--dark-secondary);
 }
 
+/* Dark mode main content area */
 body.dark-mode main {
     background-color: var(--dark-accent);
 }
 
+/* Dark mode footer styling */
 body.dark-mode footer {
     background-color: var(--dark-secondary);
 }
 
+/* Dark mode menu cards */
 body.dark-mode .menu-card {
     background-color: var(--dark-secondary);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Dark mode card hover effect - subtle white glow */
 body.dark-mode .menu-card:hover {
     background-color: var(--dark-accent);
     box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08), 0 4px 12px rgba(255, 255, 255, 0.06);
 }
 
+/* Dark mode card titles keep highlight color */
 body.dark-mode .menu-card .card-title {
     color: var(--highlight-color);
 }
 
+/* Dark mode muted text */
 body.dark-mode .menu-card .text-muted {
     color: var(--dark-muted) !important;
 }
 
+/* Dark mode heading text */
 body.dark-mode h1 {
     color: var(--dark-text);
 }
 
+/* Dark mode weather bar */
 body.dark-mode .weather-bar {
     background: rgba(0, 0, 0, 0.3);
 }
 
+/* Dark mode search input focus - highlight color border */
 body.dark-mode input[type="search"]:focus {
     border-color: var(--highlight-color);
     box-shadow: 0 0 0 0.25rem rgba(241, 188, 49, 0.25);
     outline: none;
 }
 
+/* Light mode search input focus - highlight color border */
 input[type="search"]:focus {
     border-color: var(--highlight-color);
     box-shadow: 0 0 0 0.25rem rgba(241, 188, 49, 0.25);
     outline: none;
 }
 
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+/* Reset default margins and padding, use border-box sizing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body - Roboto font, flexbox column layout for sticky footer */
 body {
     font-family: "Roboto", sans-serif;
     display: flex;
@@ -86,14 +112,21 @@ body {
     height: 100vh;
 }
 
+/* All headings use Baloo 2 font for a friendly Turkish cuisine vibe */
 h1, h2, h3, h4, h5, h6 {
     font-family: "Baloo 2", sans-serif;
 }
 
+/* ============================================
+   HEADER & WEATHER BAR
+   ============================================ */
+
+/* Header - primary color background */
 header {
     background-color: var(--primary-color);
 }
 
+/* Weather bar - displays London weather with marquee animation */
 .weather-bar {
     background: rgba(0, 0, 0, 0.15);
     color: white;
@@ -101,6 +134,7 @@ header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Weather content container - hides overflow for marquee effect */
 .weather-content {
     position: relative;
     overflow: hidden;
@@ -108,6 +142,7 @@ header {
     font-size: 14px;
 }
 
+/* Weather text - animated to scroll from right to left continuously */
 .weather-text {
     display: inline-block;
     white-space: nowrap;
@@ -115,31 +150,41 @@ header {
     animation: weather-marquee-single 20s linear infinite;
 }
 
+/* Marquee animation - starts off-screen right, exits off-screen left */
 @keyframes weather-marquee-single {
     0%   { transform: translateX(100vw); }
     100% { transform: translateX(-100%); }
 }
 
+/* Weather icons styled with highlight color */
 .weather-content i {
     color: var(--highlight-color);
     font-size: 18px;
 }
 
+/* ============================================
+   NAVIGATION BAR
+   ============================================ */
+
+/* Navbar styling - border and shadow for depth */
 .navbar {
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Brand text uses Baloo 2 font */
 .navbar-brand span {
     font-family: "Baloo 2", sans-serif;
 }
 
+/* Brand logo sizing */
 .brand-logo {
     width: 100px;
     height: 100px;
     object-fit: contain;
 }
 
+/* Dark mode toggle button - circular icon button */
 .dark-toggle {
     width: 44px;
     height: 44px;
@@ -149,16 +194,27 @@ header {
     justify-content: center;
 }
 
+/* ============================================
+   MAIN CONTENT AREA
+   ============================================ */
+
+/* Main content area - secondary color background, grows to fill available space */
 main {
     background-color: var(--secondary-color);
     flex: 1 0 auto;
 }
 
+/* ============================================
+   FOOTER
+   ============================================ */
+
+/* Footer background and spacing */
 footer {
     background-color: var(--primary-color);
     border-top: 2px solid rgba(0, 0, 0, 0.1);
 }
 
+/* Copyright text sizing */
 .footer-copyright {
     font-size: 1rem;
 }
@@ -167,12 +223,14 @@ footer {
     font-size: 1.1rem;
 }
 
+/* Social media links container */
 .footer-social {
     display: flex;
     gap: 1.5rem;
     align-items: center;
 }
 
+/* Individual social media link styling - circular icon buttons */
 .social-link {
     color: white;
     font-size: 1.25rem;
@@ -187,6 +245,7 @@ footer {
     text-decoration: none;
 }
 
+/* Social link hover - lifts up with highlight color background */
 .social-link:hover {
     background-color: var(--highlight-color);
     color: var(--primary-color);
@@ -194,6 +253,11 @@ footer {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+/* Light buttons - highlight color (gold/yellow) */
 .btn-light {
     background-color: var(--highlight-color);
     border-color: var(--highlight-color);
@@ -220,6 +284,7 @@ footer {
     transition: all 0.3s ease;
 }
 
+/* Search button hover effect */
 .search-btn:hover {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
@@ -227,6 +292,11 @@ footer {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* ============================================
+   MENU CARDS
+   ============================================ */
+
+/* Menu card base styling - accent color background with shadow */
 .menu-card {
     background-color: var(--accent-color);
     border: 0;
@@ -236,6 +306,7 @@ footer {
     overflow: visible;
 }
 
+/* Card hover effect - enhanced shadow, slight lift, brightness increase, higher z-index */
 .menu-card:hover {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25), 0 16px 40px rgba(0, 0, 0, 0.2);
     /* transform: translateY(-8px) scale(1.02); */
@@ -244,10 +315,12 @@ footer {
     z-index: 1060; 
 }
 
+/* When dropdown is open, ensure card stays on top of other cards */
 .menu-card.dropdown-open {
     z-index: 1070;
 }
 
+/* Card body - white text, flexbox column for proper spacing */
 .menu-card .card-body {
     color: white;
     display: flex;
@@ -255,22 +328,27 @@ footer {
     height: 100%;
 }
 
+/* Card title - highlight color (gold) */
 .menu-card .card-title {
     color: var(--highlight-color);
 }
 
+/* Muted text inside cards - light opacity white */
 .menu-card .text-muted {
     color: rgba(255, 255, 255, 0.85) !important;
 }
 
+/* Primary text inside cards - highlight color */
 .menu-card .text-primary {
     color: var(--highlight-color) !important;
 }
 
+/* Card text grows to fill available space */
 .menu-card .card-text {
     flex-grow: 1;
 }
 
+/* Category badge styling - small, compact label */
 .category-badge {
     font-size: 0.75rem;
     padding: 0.3rem 0.6rem;
@@ -278,15 +356,17 @@ footer {
     letter-spacing: 0.5px;
 }
 
+/* Dark mode category badge - highlight color background */
 body.dark-mode .category-badge {
     background-color: var(--highlight-color) !important;
     color: var(--dark-bg) !important;
 }
 
-.compare-section {
+/* ============================================\n   CURRENCY COMPARISON SECTION\n   ============================================ */\n\n/* Compare section pushed to bottom of card */\n.compare-section {
     margin-top: auto;
 }
 
+/* Compare row - nowrap to prevent breaking */
 .compare-row {
     color: white;
     flex-wrap: nowrap;
@@ -294,16 +374,18 @@ body.dark-mode .category-badge {
     align-items: center;
 }
 
+/* Compare labels - slightly smaller, transparent text */
 .compare-label {
     font-size: 0.85rem;
     opacity: 0.9;
 }
 
+/* Dropdown menu z-index */
 .dropdown-menu {
     z-index: 1050;
 }
 
-/* Currency dropdown improvements: shorter list with internal search */
+/* Currency dropdown list - scrollable with max height */
 .currency-list {
     max-height: 280px;
     overflow-y: auto;
