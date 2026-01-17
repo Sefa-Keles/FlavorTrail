@@ -122,7 +122,7 @@ export const menuItems = [
   {
     id: 16,
     name: "Salep",
-    description: "Salep, leblebi, cinnamon, roasted chickpea",
+    description: "Salep, cinnamon, roasted chickpeas",
     price: 6.99,
     category: "Drink",
     image: "assets/images/salep.png"
