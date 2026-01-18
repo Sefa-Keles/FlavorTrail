@@ -37,7 +37,7 @@ export const menuItems = [
     description: "Lamb Meat, gee oil, salt, oregano",
     price: 13.99,
     category: "Meal",
-    image: "assets/images/cay.webp"
+    image: "assets/images/doner.webp"
   },
   {
     id: 6,
