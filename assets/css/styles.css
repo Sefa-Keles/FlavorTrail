@@ -17,9 +17,7 @@
     --dark-muted: #888888;          /* Gray for muted text */
 }
 
-/* ============================================
-   DARK MODE STYLES
-   ============================================ */
+   /* DARK MODE STYLES */
 
 /* Smooth color transitions for theme switching */
 body {
@@ -98,9 +96,7 @@ input[type="search"]:focus {
     border-radius: 0.3rem !important;
 }
 
-/* ============================================
-   BASE STYLES
-   ============================================ */
+   /* BASE STYLES */
 
 /* Reset default margins and padding, use border-box sizing */
 * {
@@ -155,9 +151,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Baloo 2", sans-serif;
 }
 
-/* ============================================
-   HEADER & WEATHER BAR
-   ============================================ */
+   /* HEADER & WEATHER BAR */
 
 /* Header - primary color background */
 header {
@@ -200,9 +194,7 @@ header {
     font-size: 18px;
 }
 
-/* ============================================
-   NAVIGATION BAR
-   ============================================ */
+   /* NAVIGATION BAR */
 
 /* Navbar styling - border and shadow for depth */
 .navbar {
@@ -232,9 +224,7 @@ header {
     justify-content: center;
 }
 
-/* ============================================
-   MAIN CONTENT AREA
-   ============================================ */
+   /* MAIN CONTENT AREA */
 
 /* Main content area - secondary color background, grows to fill available space */
 main {
@@ -242,9 +232,7 @@ main {
     flex: 1 0 auto;
 }
 
-/* ============================================
-   FOOTER
-   ============================================ */
+   /* FOOTER */
 
 /* Footer background and spacing */
 footer {
@@ -301,9 +289,7 @@ footer {
     outline-offset: 2px;
 }
 
-/* ============================================
-   BUTTONS
-   ============================================ */
+   /* BUTTONS */
 
 /* Light buttons - highlight color (gold/yellow) */
 .btn-light {
@@ -343,24 +329,7 @@ footer {
     font-weight: bold;
 }
 
-.search-btn {
-    background-color: var(--highlight-color);
-    border-color: var(--highlight-color);
-    color: var(--primary-color);
-    transition: all 0.3s ease;
-}
-
-/* Search button hover effect */
-.search-btn:hover {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
-    color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* ============================================
-   MENU CARDS
-   ============================================ */
+   /* MENU CARDS */
 
 /* Menu card base styling - accent color background with shadow */
 .menu-card {
@@ -428,8 +397,9 @@ body.dark-mode .category-badge {
     color: var(--dark-bg) !important;
 }
 
-/* ============================================\n   CURRENCY COMPARISON SECTION\n   ============================================ */\n\n/* Compare section pushed to bottom of card */\n.compare-section {
-    margin-top: auto;
+/* Currency comparison section */
+.compare-section {
+    margin-top: auto; /* Pushes section to bottom */
 }
 
 /* Compare row - nowrap to prevent breaking */
