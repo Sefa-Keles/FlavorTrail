@@ -2,8 +2,8 @@
 
 ## 📌 Project Overview
 
-![Light Mode Mockup](assets/images/readme/all-devices-light.png)
-![Dark Mode Mockup](assets/images/readme/all-devices-dark.png)
+![Light Mode Mockup](assets/images/readme/all-devices-white.png)
+![Dark Mode Mockup](assets/images/readme/all-devices-black.png)
 
 Flavor Trail is a single-page interactive Turkish restaurant menu web application built using HTML5, CSS3, and vanilla JavaScript (ES6 Modules).
 
@@ -78,6 +78,24 @@ This application allows users to:
 
 ### 📱 Responsive Design
 
+**Desktop - Light Mode:**
+![Desktop Light](assets/images/readme/all-devices-white.png)
+
+**Desktop - Dark Mode:**
+![Desktop Dark](assets/images/readme/all-devices-black.png)
+
+**Tablet - Light Mode:**
+![Tablet Light](assets/images/readme/tablet-white.png)
+
+**Tablet - Dark Mode:**
+![Tablet Dark](assets/images/readme/tablet-black.png)
+
+**Mobile - Light Mode:**
+![Mobile Light](assets/images/readme/mobile-white.png)
+
+**Mobile - Dark Mode:**
+![Mobile Dark](assets/images/readme/mobile-black.png)
+
 Optimized for all device sizes with dedicated breakpoints:
 
 - **Desktop/Monitor** (1200px+): Comfortable spacing
@@ -94,16 +112,19 @@ Optimized for all device sizes with dedicated breakpoints:
 
 ### ✅ HTML Validation
 
-![HTML Validator](assets/images/readme/html-validator.png)
+![HTML Validator](assets/images/readme/HTML\ W3C\ validator.png)
 
 - **W3C HTML Validator**: No errors or warnings
 - **Semantic HTML5**: Proper use of tags (header, main, section, footer)
 - **Accessibility Markup**: ARIA labels, roles, and live regions
 - **Form Attributes**: Proper id, name, and autocomplete values
 
+**Live Console - No Errors:**
+![Live Console](assets/images/readme/live\ website\ console\ ,\ no\ errors\ and\ issues.png)
+
 ### ✅ CSS Validation
 
-![CSS Validator](assets/images/readme/css-validator.png)
+![CSS Validator](assets/images/readme/CSS\ W3C\ Jigsaw\ validator.png)
 
 - **W3C CSS Validator**: CSS Level 3 + SVG compliant
 - **No Errors**: Clean, validated stylesheet
@@ -112,7 +133,17 @@ Optimized for all device sizes with dedicated breakpoints:
 
 ### ✅ JavaScript Linting
 
-![JavaScript Validator](assets/images/readme/javascript-validator.png)
+**Main Script Validation:**
+![Script.js Validator](assets/images/readme/script.js\ Javascript\ validator.png)
+
+**API Module Validation:**
+![API.js Validator](assets/images/readme/api.js\ Javascript\ validator.png)
+
+**Dark Mode Module Validation:**
+![DarkMode.js Validator](assets/images/readme/darkMode.js\ Javascript\ validator.png)
+
+**Data Module Validation:**
+![Data.js Validator](assets/images/readme/data.js\ Javascript\ validator.png)
 
 - **ValidateJavaScript.com**: No errors or warnings
 - **ESLint Compliance**: 
@@ -137,7 +168,11 @@ Optimized for all device sizes with dedicated breakpoints:
 
 ### 📊 Lighthouse Testing
 
-![Lighthouse Results](assets/images/readme/lighthouse.png)
+**Desktop Performance:**
+![Lighthouse Desktop](assets/images/readme/lighthouse-desktop.png)
+
+**Mobile Performance:**
+![Lighthouse Mobile](assets/images/readme/lighthouse-mobile.png)
 
 - **Performance**: 95/100
 - **Accessibility**: 94/100
@@ -255,6 +290,9 @@ FlavorTrail/
 - **HTML5**: Semantic markup
 - **CSS3**: Custom properties, flexbox, media queries
 - **JavaScript ES6**: Modules, async/await, arrow functions
+
+**Color Palette:**
+![Color Palette](assets/images/readme/color_palette.webp)
 
 ### **Libraries & Frameworks**
 
