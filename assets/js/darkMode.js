@@ -7,18 +7,6 @@ const darkToggleBtn = document.querySelector('.dark-toggle');
 const darkToggleIcon = darkToggleBtn.querySelector('i');
 
 /**
- * Initialize dark mode based on saved preference in localStorage
- * Checks localStorage and applies dark mode if previously enabled
- */
-function initDarkMode() {
-  const savedMode = localStorage.getItem('darkMode');
-  if (savedMode === 'enabled') {
-    document.body.classList.add('dark-mode');
-    updateDarkModeIcon(true);
-  }
-}
-
-/**
  * Updates the dark mode toggle icon based on current mode
  * @param {boolean} isDark - Whether dark mode is currently active
  */
@@ -31,6 +19,18 @@ function updateDarkModeIcon(isDark) {
     darkToggleIcon.classList.remove('fa-sun');
     darkToggleIcon.classList.add('fa-moon');
     darkToggleBtn.setAttribute('aria-pressed', 'false');
+  }
+}
+
+/**
+ * Initialize dark mode based on saved preference in localStorage
+ * Checks localStorage and applies dark mode if previously enabled
+ */
+function initDarkMode() {
+  const savedMode = localStorage.getItem('darkMode');
+  if (savedMode === 'enabled') {
+    document.body.classList.add('dark-mode');
+    updateDarkModeIcon(true);
   }
 }
 
