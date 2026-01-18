@@ -1,8 +1,7 @@
 import { menuItems } from './data.js';
+import { fetchLondonWeather, fetchExchangeRates } from './api.js';
 
-// ============================================
 // DOM ELEMENT REFERENCES
-// ============================================
 
 /** Menu container where menu cards will be rendered */
 const menuContainer = document.getElementById('menu-container');
@@ -13,41 +12,11 @@ const filterButtons = document.querySelectorAll('.filter-btn');
 /** Search input for filtering menu items by name or description */
 const searchInput = document.querySelector('input[type="search"]');
 
-// ============================================
-// WEATHER API CONFIGURATION
-// ============================================
-
-/** OpenWeatherMap API key */
-const WEATHER_API_KEY = '9563c0e75eaf848ae6d47c6466b58aaf';
-
-/** City for weather data (London, UK) */
-const WEATHER_CITY = 'London,uk';
-
 /** Weather content container element */
 const weatherContentEl = document.getElementById('weather-content');
 
-/**
- * Fetches current weather data for London from OpenWeatherMap API
- * Uses metric units for temperature display
- * Handles API errors gracefully by displaying fallback message
- * @async
- */
-async function fetchLondonWeather() {
-  try {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${WEATHER_CITY}&APPID=${WEATHER_API_KEY}&units=metric`;
-    const response = await fetch(url);
-    const data = await response.json();
-    if (data.cod === 200 || data.cod === "200") {
-      renderWeather(data);
-    } else {
-      weatherContentEl.textContent = 'Weather unavailable';
-      console.error('Weather API Error:', data);
-    }
-  } catch (error) {
-    weatherContentEl.textContent = 'Weather unavailable';
-    console.error('Weather fetch error:', error);
-  }
-}
+/** Object storing exchange rates from API {currency: rate} */
+let exchangeRates = {};
 
 /**
  * Renders weather data into the weather bar with marquee animation
@@ -66,34 +35,6 @@ function renderWeather(data) {
   weatherContentEl.innerHTML = `
       <span class="weather-text">${text}</span>
   `;
-}
-
-// ============================================
-// CURRENCY EXCHANGE API CONFIGURATION
-// ============================================
-
-/** ExchangeRate API key */
-const EXCHANGE_API_KEY = '8126c0d3f19969698e9e0554';
-
-/** Base currency for conversions (British Pound) */
-const BASE_CURRENCY = 'GBP';
-
-/** Object storing exchange rates from API {currency: rate} */
-let exchangeRates = {};
-
-/**
- * Fetches latest exchange rates from ExchangeRate API
- * Stores conversion rates in exchangeRates object
- * @async
- */
-async function fetchExchangeRates() {
-  try {
-    const response = await fetch(`https://v6.exchangerate-api.com/v6/${EXCHANGE_API_KEY}/latest/${BASE_CURRENCY}`);
-    const data = await response.json();
-    exchangeRates = data.conversion_rates;
-  } catch (error) {
-    console.error('Exchange rate fetch error:', error);
-  }
 }
 
 /**
@@ -296,9 +237,14 @@ darkToggleBtn.addEventListener('click', toggleDarkMode);
 
 async function init() {
   initDarkMode();
-  await fetchExchangeRates();
+  exchangeRates = await fetchExchangeRates();
   renderMenu(menuItems);
-  fetchLondonWeather();
+  const weatherData = await fetchLondonWeather();
+  if (weatherData) {
+    renderWeather(weatherData);
+  } else {
+    weatherContentEl.textContent = 'Weather unavailable';
+  }
 }
 
 init();
