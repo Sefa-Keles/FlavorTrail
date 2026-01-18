@@ -85,16 +85,16 @@ This application allows users to:
 ![Desktop Dark](assets/images/readme/laptop-dark.png)
 
 **Tablet - Light Mode:**
-![Tablet Light](assets/images/readme/tablet-white.png)
+<img src="assets/images/readme/tablet-white.png" alt="Tablet Light" width="480" />
 
 **Tablet - Dark Mode:**
-![Tablet Dark](assets/images/readme/tablet-black.png)
+<img src="assets/images/readme/tablet-black.png" alt="Tablet Dark" width="480" />
 
 **Mobile - Light Mode:**
-![Mobile Light](assets/images/readme/mobile-white.png)
+<img src="assets/images/readme/mobile-white.png" alt="Mobile Light" width="260" />
 
 **Mobile - Dark Mode:**
-![Mobile Dark](assets/images/readme/mobile-black.png)
+<img src="assets/images/readme/mobile-black.png" alt="Mobile Dark" width="260" />
 
 Optimized for all device sizes with dedicated breakpoints:
 
