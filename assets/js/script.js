@@ -1,5 +1,6 @@
 import { menuItems } from './data.js';
 import { fetchLondonWeather, fetchExchangeRates } from './api.js';
+import { initDarkMode } from './darkMode.js';
 
 // DOM ELEMENT REFERENCES
 
@@ -216,41 +217,6 @@ if (searchInput) {
 } else {
   console.error('Search input element not found!');
 }
-
-// Dark Mode Toggle with localStorage
-const darkToggleBtn = document.querySelector('.dark-toggle');
-const darkToggleIcon = darkToggleBtn.querySelector('i');
-
-function initDarkMode() {
-  const savedMode = localStorage.getItem('darkMode');
-  if (savedMode === 'enabled') {
-    document.body.classList.add('dark-mode');
-    updateDarkModeIcon(true);
-  }
-}
-
-function updateDarkModeIcon(isDark) {
-  if (isDark) {
-    darkToggleIcon.classList.remove('fa-moon');
-    darkToggleIcon.classList.add('fa-sun');
-  } else {
-    darkToggleIcon.classList.remove('fa-sun');
-    darkToggleIcon.classList.add('fa-moon');
-  }
-}
-
-function toggleDarkMode() {
-  const isDarkMode = document.body.classList.toggle('dark-mode');
-  updateDarkModeIcon(isDarkMode);
-  
-  if (isDarkMode) {
-    localStorage.setItem('darkMode', 'enabled');
-  } else {
-    localStorage.setItem('darkMode', 'disabled');
-  }
-}
-
-darkToggleBtn.addEventListener('click', toggleDarkMode);
 
 async function init() {
   initDarkMode();
