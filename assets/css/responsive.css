@@ -41,6 +41,23 @@
     }
 }
 
+/* Mobile - standard phones around 375px (iPhone, etc) */
+@media (max-width: 375px) {
+    .filter-btn {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.55rem;
+        white-space: nowrap;
+    }
+
+    .filter-btn.active::after {
+        margin-left: 0.15rem;
+    }
+
+    .filter-buttons-container {
+        gap: 0.3rem !important;
+    }
+}
+
 /* Extra small devices (320px - 360px) - ultra compact buttons */
 @media (max-width: 360px) {
     .filter-btn {
