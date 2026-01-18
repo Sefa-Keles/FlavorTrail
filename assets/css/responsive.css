@@ -74,3 +74,22 @@
         gap: 0.25rem !important;
     }
 }
+
+/* Ultra small devices (240px - 319px) - minimal spacing for narrow screens */
+@media (max-width: 240px) {
+    .filter-btn {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.4rem;
+        font-weight: 500;
+    }
+
+    .filter-btn.active::after {
+        content: '✓';
+        margin-left: 0.05rem;
+        font-size: 0.85em;
+    }
+
+    .filter-buttons-container {
+        gap: 0.15rem !important;
+    }
+}
