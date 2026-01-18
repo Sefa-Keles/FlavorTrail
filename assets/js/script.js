@@ -144,7 +144,7 @@ function renderMenu(items) {
     // Create and add search input at the top of dropdown (sticky position)
     const searchItem = document.createElement('li');
     searchItem.classList.add('search-item', 'px-2', 'py-2');
-    searchItem.innerHTML = `<input type="text" id="currency-search" name="currency-search" class="form-control form-control-sm dropdown-search" placeholder="Search currency..." aria-label="Search currency" autocomplete="off">`;
+    searchItem.innerHTML = `<input type="text" id="currency-search-${item.id}" name="currency-search-${item.id}" class="form-control form-control-sm dropdown-search" placeholder="Search currency..." aria-label="Search currency" autocomplete="off">`;
     currencyList.appendChild(searchItem);
     const dropdownSearchInput = searchItem.querySelector('.dropdown-search');
 
