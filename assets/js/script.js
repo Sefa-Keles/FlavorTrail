@@ -84,7 +84,7 @@ function renderMenu(items) {
     card.innerHTML = `
       <div class="card h-100 menu-card">
         <div class="ratio ratio-4x3">
-          <img src="${item.image}" class="card-img-top" alt="${item.name}">
+          <img src="${item.image}" class="card-img-top" alt="">
         </div>
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-start mb-2">
