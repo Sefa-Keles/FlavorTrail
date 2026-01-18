@@ -294,6 +294,15 @@ FlavorTrail/
 **Color Palette:**
 ![Color Palette](assets/images/readme/color_palette.webp)
 
+**Dark Mode Colors:**
+- **Primary Dark Background** (#1a1a1a): Main background for dark theme
+- **Secondary Dark Background** (#2d2d2d): Card and panel backgrounds
+- **Dark Text Color** (#e0e0e0): Primary text in dark mode
+- **Accent Color** (#B22222: Indian Red): Highlights and buttons in dark mode
+- **Border Color** (#444444): Subtle dividers and borders
+
+The application automatically switches between light and dark modes while maintaining WCAG 2.1 accessibility standards for color contrast.
+
 ### **Libraries & Frameworks**
 
 - **Bootstrap 5.0.2**: Responsive grid, components, utilities
