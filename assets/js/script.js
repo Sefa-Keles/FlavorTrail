@@ -175,9 +175,13 @@ function renderMenu(items) {
     dropdownSearchInput.addEventListener('input', () => {
       const term = dropdownSearchInput.value.toLowerCase();
       // Show/hide currency options based on search term
-      currencyList.querySelectorAll('li.currency-option').forEach(li => {
-        const text = li.textContent.toLowerCase();
-        li.style.display = text.includes(term) ? '' : 'none';
+      currencyList.querySelectorAll('li.currency-option').forEach(element => {
+        const text = element.textContent.toLowerCase();
+        if (text.includes(term)) {
+          element.classList.remove('d-none');
+        } else {
+          element.classList.add('d-none');
+        }
       });
     });
   });
@@ -225,8 +229,6 @@ if (searchInput) {
   searchInput.addEventListener('input', () => {
     filterAndRender();
   });
-} else {
-  console.error('Search input element not found!');
 }
 
 async function init() {
