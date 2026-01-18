@@ -5,7 +5,7 @@ export const menuItems = [
     description: "Yoghurt, mint leaves, spring water, salt",
     price: 2.99,
     category: "Drink",
-    image: "assets/images/ayran.png"
+    image: "assets/images/ayran.webp"
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const menuItems = [
     description: "Pistachio, sugar, phyllo dough",
     price: 5.99,
     category: "Dessert",
-    image: "assets/images/baklava.png"
+    image: "assets/images/baklava.webp"
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export const menuItems = [
     description: "Meat, bread, tomato sauce, butter, salt",
     price: 2.99,
     category: "Meal",
-    image: "assets/images/beyti.png"
+    image: "assets/images/beyti.webp"
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ export const menuItems = [
     description: "Turkish tea leaves, sugar, spring water",
     price: 2.99,
     category: "Drink",
-    image: "assets/images/cay.png"
+    image: "assets/images/cay.webp"
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ export const menuItems = [
     description: "Lamb Meat, gee oil, salt, oregano",
     price: 13.99,
     category: "Meal",
-    image: "assets/images/cay.png"
+    image: "assets/images/cay.webp"
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ export const menuItems = [
     description: "Beans, cucumber, tomatoes, parsley, olive oil, salt",
     price: 5.99,
     category: "Salad",
-    image: "assets/images/gavurdagi_salad.png"
+    image: "assets/images/gavurdagi_salad.webp"
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ export const menuItems = [
     description: "Lamb Meat, tomato sauce, gee oil, salt, pepper, rice",
     price: 14.99,
     category: "Meal",
-    image: "assets/images/iskender.png"
+    image: "assets/images/iskender.webp"
   },
   {
     id: 8,
@@ -61,7 +61,7 @@ export const menuItems = [
     description: "Turkish Coffee, water, sugar",
     price: 3.99,
     category: "Drink",
-    image: "assets/images/kahve.png"
+    image: "assets/images/kahve.webp"
   },
   {
     id: 9,
@@ -69,7 +69,7 @@ export const menuItems = [
     description: "Lamb Mince Meat, tomatoes, black pepper, oregano, salt",
     price: 12.99,
     category: "Meal",
-    image: "assets/images/kofte.jpg"
+    image: "assets/images/kofte.webp"
   },
   {
     id: 10,
@@ -77,7 +77,7 @@ export const menuItems = [
     description: "Pistachio, sugar, dough, mild cheese",
     price: 8.99,
     category: "Dessert",
-    image: "assets/images/kunefe.png"
+    image: "assets/images/kunefe.webp"
   },
   {
     id: 11,
@@ -85,7 +85,7 @@ export const menuItems = [
     description: "Beef mince meat, gee oil, parsley, tomatoes, pepper",
     price: 8.99,
     category: "Meal",
-    image: "assets/images/lahmacun.jpg"
+    image: "assets/images/lahmacun.webp"
   },
   {
     id: 12,
@@ -93,7 +93,7 @@ export const menuItems = [
     description: "Egg, tomatoes, mild cheese, butter, salt, black pepper",
     price: 9.99,
     category: "Meal",
-    image: "assets/images/menemen.png"
+    image: "assets/images/menemen.webp"
   },
   {
     id: 13,
@@ -101,7 +101,7 @@ export const menuItems = [
     description: "Lettuce, olive, white cheese, cucumber, parsley, peppers",
     price: 4.99,
     category: "Salad",
-    image: "assets/images/mix_salad.png"
+    image: "assets/images/mix_salad.webp"
   },
   {
     id: 14,
@@ -109,7 +109,7 @@ export const menuItems = [
     description: "Lamb mince meat, beef meet, gee oil, tomatoes, black pepper, salt",
     price: 10.99,
     category: "Meal",
-    image: "assets/images/pide.jpg"
+    image: "assets/images/pide.webp"
   },
   {
     id: 15,
@@ -117,7 +117,7 @@ export const menuItems = [
     description: "Pomegranate, lettuce, cucumber, cheese, grapes , olive oil",
     price: 7.99,
     category: "Salad",
-    image: "assets/images/fruit_salad.png"
+    image: "assets/images/fruit_salad.webp"
   },
   {
     id: 16,
@@ -125,7 +125,7 @@ export const menuItems = [
     description: "Salep, cinnamon, roasted chickpeas",
     price: 6.99,
     category: "Drink",
-    image: "assets/images/salep.png"
+    image: "assets/images/salep.webp"
   },
   {
     id: 17,
@@ -133,7 +133,7 @@ export const menuItems = [
     description: "Rose sherbet, water, sugar",
     price: 4.99,
     category: "Drink",
-    image: "assets/images/sherbet.png"
+    image: "assets/images/sherbet.webp"
   },
   {
     id: 18,
@@ -141,6 +141,6 @@ export const menuItems = [
     description: "Milk, rice, sugar",
     price: 8.99,
     category: "Dessert",
-    image: "assets/images/sutlac.png"
+    image: "assets/images/sutlac.webp"
   }
 ];

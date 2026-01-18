@@ -176,12 +176,11 @@ function filterAndRender() {
   let filteredItems =
     category === 'All' ? menuItems : menuItems.filter(item => item.category === category);
 
-  // Further filter by search term (name or description)
+  // Further filter by search term (only in name)
   const searchTerm = searchInput.value.toLowerCase();
   if (searchTerm) {
     filteredItems = filteredItems.filter(item =>
-      item.name.toLowerCase().includes(searchTerm) ||
-      item.description.toLowerCase().includes(searchTerm)
+      item.name.toLowerCase().includes(searchTerm)
     );
   }
 
@@ -196,9 +195,13 @@ filterButtons.forEach(button => {
   });
 });
 
-searchInput.addEventListener('input', () => {
-  filterAndRender();
-});
+if (searchInput) {
+  searchInput.addEventListener('input', () => {
+    filterAndRender();
+  });
+} else {
+  console.error('Search input element not found!');
+}
 
 // Dark Mode Toggle with localStorage
 const darkToggleBtn = document.querySelector('.dark-toggle');
