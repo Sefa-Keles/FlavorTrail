@@ -26,9 +26,11 @@ function updateDarkModeIcon(isDark) {
   if (isDark) {
     darkToggleIcon.classList.remove('fa-moon');
     darkToggleIcon.classList.add('fa-sun');
+    darkToggleBtn.setAttribute('aria-pressed', 'true');
   } else {
     darkToggleIcon.classList.remove('fa-sun');
     darkToggleIcon.classList.add('fa-moon');
+    darkToggleBtn.setAttribute('aria-pressed', 'false');
   }
 }
 

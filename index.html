@@ -4,6 +4,8 @@
     <!-- Character encoding and viewport settings for responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover authentic Turkish cuisine with our menu featuring traditional meals, salads, desserts, and drinks. Browse and compare prices in multiple currencies.">
+    <meta name="keywords" content="Turkish cuisine, Turkish food, Turkish restaurant, menu, kebab, baklava">
     
     <!-- Font Awesome CDN - provides icon library for UI elements -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,13 +22,16 @@
     <title>Flavor Trail | Home</title>
 </head>
 <body>
+    <!-- Skip link for keyboard navigation - allows users to skip to main content -->
+    <a href="#menu-section" class="skip-link">Skip to main content</a>
+    
     <!-- HEADER SECTION -->
     <header>
         <!-- Weather bar - displays London weather with scrolling marquee animation -->
-        <div class="weather-bar">
+        <div class="weather-bar" role="complementary" aria-label="Weather information">
             <div class="container-fluid px-0">
                 <!-- Weather content container - populated dynamically via JavaScript -->
-                <div id="weather-content" class="weather-content">Loading London weather...</div>
+                <div id="weather-content" class="weather-content" aria-live="polite">Loading London weather...</div>
             </div>
         </div>
         
@@ -40,15 +45,15 @@
                 </a>
                 
                 <!-- Dark/Light mode toggle button - switches theme and saves preference to localStorage -->
-                <button class="btn btn-outline-light dark-toggle" type="button" aria-label="Dark mode toggle">
-                    <i class="fa-solid fa-moon"></i>
+                <button class="btn btn-outline-light dark-toggle" type="button" aria-label="Dark mode toggle" aria-pressed="false">
+                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
                 </button>
             </div>
         </nav>
     </header>
 
     <!-- MAIN CONTENT SECTION -->
-    <main>
+    <main id="menu-section">
         <section class="py-5">
             <div class="container">
                 <!-- Page title -->
@@ -56,7 +61,8 @@
                 
                 <!-- Search bar - filters menu items by name or description -->
                 <div class="input-group input-group-lg">
-                    <input type="search" class="form-control" placeholder="Search dishes..." aria-label="Search dishes">
+                    <label for="search-input" class="visually-hidden">Search dishes</label>
+                    <input id="search-input" type="search" class="form-control" placeholder="Search dishes..." aria-label="Search dishes">
                     <!-- Optional search button (currently commented out) -->
                     <!-- <button class="btn search-btn" type="button" aria-label="Search">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -64,16 +70,16 @@
                 </div>
                 
                 <!-- Category filter buttons - filter menu items by category (All/Meals/Salads/Desserts/Drinks) -->
-                <div class="d-flex justify-content-center flex-wrap gap-2 mt-4">
-                    <button class="btn btn-light filter-btn" type="button" data-category="All">All</button>
-                    <button class="btn btn-outline-light filter-btn" type="button" data-category="Meal">Meals</button>
-                    <button class="btn btn-outline-light filter-btn" type="button" data-category="Salad">Salads</button>
-                    <button class="btn btn-outline-light filter-btn" type="button" data-category="Dessert">Desserts</button>
-                    <button class="btn btn-outline-light filter-btn" type="button" data-category="Drink">Drinks</button>
+                <div class="d-flex justify-content-center flex-wrap gap-2 mt-4" role="group" aria-label="Filter menu by category">
+                    <button class="btn btn-light filter-btn active" type="button" data-category="All" aria-pressed="true">All</button>
+                    <button class="btn btn-outline-light filter-btn" type="button" data-category="Meal" aria-pressed="false">Meals</button>
+                    <button class="btn btn-outline-light filter-btn" type="button" data-category="Salad" aria-pressed="false">Salads</button>
+                    <button class="btn btn-outline-light filter-btn" type="button" data-category="Dessert" aria-pressed="false">Desserts</button>
+                    <button class="btn btn-outline-light filter-btn" type="button" data-category="Drink" aria-pressed="false">Drinks</button>
                 </div>
                 
                 <!-- Menu items container - populated dynamically by JavaScript with menu cards -->
-                <div id="menu-container" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4"></div>
+                <div id="menu-container" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4" role="region" aria-live="polite" aria-label="Menu items"></div>
             </div>
         </section>
     </main>
@@ -89,17 +95,17 @@
                 
                 <!-- Social media links -->
                 <div class="footer-social">
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
-                        <i class="fa-brands fa-facebook"></i>
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Visit our Facebook page">
+                        <i class="fa-brands fa-facebook" aria-hidden="true"></i>
                     </a>
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
-                        <i class="fa-brands fa-instagram"></i>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Visit our Instagram profile">
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
                     </a>
-                    <a href="https://www.youtube.com" target="_blank" rel="noopener" class="social-link" aria-label="YouTube">
-                        <i class="fa-brands fa-youtube"></i>
+                    <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Visit our YouTube channel">
+                        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
                     </a>
-                    <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
-                        <i class="fa-brands fa-linkedin"></i>
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Visit our LinkedIn page">
+                        <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>

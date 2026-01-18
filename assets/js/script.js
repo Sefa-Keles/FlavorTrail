@@ -64,14 +64,19 @@ function renderMenu(items) {
     menuContainer.innerHTML = `
       <div class="col-12">
         <div class="text-center py-5 my-5" style="color: var(--highlight-color);">
-          <i class="fas fa-search fa-3x mb-3"></i>
+          <i class="fas fa-search fa-3x mb-3" aria-hidden="true"></i>
           <h3>No dishes found</h3>
           <p>Try searching with a different keyword or browse all categories</p>
         </div>
       </div>
     `;
+    // Announce to screen readers
+    menuContainer.setAttribute('aria-label', 'No dishes found. Try a different search.');
     return;
   }
+
+  // Update aria-label for results
+  menuContainer.setAttribute('aria-label', `${items.length} menu items displayed`);
 
   items.forEach(item => {
     const card = document.createElement('div');
@@ -98,10 +103,10 @@ function renderMenu(items) {
             <div class="d-flex align-items-center flex-wrap gap-2 mt-2 compare-row">
               <small class="text-light mb-0 compare-label">Select Currency :</small>
               <div class="dropdown" data-bs-auto-close="outside">
-                <button class="btn btn-sm btn-outline-light dropdown-toggle compare-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-sm btn-outline-light dropdown-toggle compare-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Select currency for price comparison">
                   Currency
                 </button>
-                <ul class="dropdown-menu currency-list">
+                <ul class="dropdown-menu currency-list" role="menu" aria-label="Currency options">
                   <!-- JS ile doldurulacak -->
                 </ul>
               </div>
@@ -148,7 +153,8 @@ function renderMenu(items) {
     sortedCurrencies.forEach(curr => {
       const li = document.createElement('li');
       li.classList.add('currency-option');
-      li.innerHTML = `<a class="dropdown-item" href="#">${curr}</a>`;
+      li.setAttribute('role', 'menuitem');
+      li.innerHTML = `<a class="dropdown-item" href="#" tabindex="0">${curr}</a>`;
       
       // Click handler to convert price to selected currency
       li.addEventListener('click', (e) => {
@@ -204,8 +210,13 @@ function filterAndRender() {
 
 filterButtons.forEach(button => {
   button.addEventListener('click', () => {
-    filterButtons.forEach(btn => btn.classList.remove('active'));
+    // Update active state and aria-pressed for all filter buttons
+    filterButtons.forEach(btn => {
+      btn.classList.remove('active');
+      btn.setAttribute('aria-pressed', 'false');
+    });
     button.classList.add('active');
+    button.setAttribute('aria-pressed', 'true');
     filterAndRender();
   });
 });
@@ -227,6 +238,11 @@ async function init() {
     renderWeather(weatherData);
   } else {
     weatherContentEl.textContent = 'Weather unavailable';
+  }
+  
+  // Auto-focus search input for better user experience
+  if (searchInput) {
+    searchInput.focus();
   }
 }
 

@@ -93,6 +93,11 @@ input[type="search"]:focus {
     outline: none;
 }
 
+/* Fix search input border-radius - override Bootstrap input-group styles */
+.input-group > .form-control {
+    border-radius: 0.3rem !important;
+}
+
 /* ============================================
    BASE STYLES
    ============================================ */
@@ -102,6 +107,39 @@ input[type="search"]:focus {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Skip link for keyboard navigation - hidden by default, visible on focus */
+.skip-link {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    z-index: 9999;
+    padding: 10px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.skip-link:focus {
+    top: 10px;
+    left: 10px;
+    outline: 2px solid var(--highlight-color);
+    outline-offset: 2px;
+}
+
+/* Visually hidden class for screen readers - display labels without visual impact */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border-width: 0 !important;
 }
 
 /* Body - Roboto font, flexbox column layout for sticky footer */
@@ -253,6 +291,16 @@ footer {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Social link focus - same style as hover for keyboard navigation */
+.social-link:focus-visible {
+    background-color: var(--highlight-color);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    outline: 2px solid var(--highlight-color);
+    outline-offset: 2px;
+}
+
 /* ============================================
    BUTTONS
    ============================================ */
@@ -275,6 +323,24 @@ footer {
     background-color: var(--highlight-color);
     border-color: var(--highlight-color);
     color: var(--primary-color);
+}
+
+/* Focus visible state for all buttons - required for accessibility */
+.btn:focus-visible,
+.filter-btn:focus-visible {
+    outline: 2px solid var(--highlight-color);
+    outline-offset: 2px;
+}
+
+/* Active filter button - visual indicator beyond color */
+.filter-btn.active {
+    position: relative;
+}
+
+.filter-btn.active::after {
+    content: '✓';
+    margin-left: 0.5rem;
+    font-weight: bold;
 }
 
 .search-btn {
