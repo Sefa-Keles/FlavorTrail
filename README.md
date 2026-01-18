@@ -249,26 +249,9 @@ FlavorTrail/
 │   ├── css/
 │   │   ├── styles.css           # Main styles (550 lines)
 │   │   └── responsive.css       # Media queries (96 lines)
-│   ├── images/                  # All WebP format
-│   │   ├── logo.webp
-│   │   ├── ayran.webp
-│   │   ├── baklava.webp
-│   │   ├── beyti.webp
-│   │   ├── cay.webp
-│   │   ├── doner.webp
-│   │   ├── fruit_salad.webp
-│   │   ├── gavurdagi_salad.webp
-│   │   ├── iskender.webp
-│   │   ├── kahve.webp
-│   │   ├── kofte.webp
-│   │   ├── kunefe.webp
-│   │   ├── lahmacun.webp
-│   │   ├── menemen.webp
-│   │   ├── mix_salad.webp
-│   │   ├── pide.webp
-│   │   ├── salep.webp
-│   │   ├── sherbet.webp
-│   │   └── sutlac.webp
+│   ├── images/
+│   │   ├── menu/                # WebP menu item images
+│   │   └── readme/              # README screenshots & palettes
 │   └── js/
 │       ├── script.js            # Main app logic (252 lines)
 │       ├── api.js               # API functions (60 lines)
