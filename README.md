@@ -112,7 +112,7 @@ Optimized for all device sizes with dedicated breakpoints:
 
 ### ✅ HTML Validation
 
-![HTML Validator](assets/images/readme/HTML\ W3C\ validator.png)
+![HTML Validator](assets/images/readme/HTML-W3C-validator.png)
 
 - **W3C HTML Validator**: No errors or warnings
 - **Semantic HTML5**: Proper use of tags (header, main, section, footer)
@@ -120,11 +120,11 @@ Optimized for all device sizes with dedicated breakpoints:
 - **Form Attributes**: Proper id, name, and autocomplete values
 
 **Live Console - No Errors:**
-![Live Console](assets/images/readme/live\ website\ console\ ,\ no\ errors\ and\ issues.png)
+![Live Console](assets/images/readme/live-website-console.png)
 
 ### ✅ CSS Validation
 
-![CSS Validator](assets/images/readme/CSS\ W3C\ Jigsaw\ validator.png)
+![CSS Validator](assets/images/readme/CSS-W3C-jigsaw-validator.png)
 
 - **W3C CSS Validator**: CSS Level 3 + SVG compliant
 - **No Errors**: Clean, validated stylesheet
@@ -134,16 +134,16 @@ Optimized for all device sizes with dedicated breakpoints:
 ### ✅ JavaScript Linting
 
 **Main Script Validation:**
-![Script.js Validator](assets/images/readme/script.js\ Javascript\ validator.png)
+![Script.js Validator](assets/images/readme/script-js-javascript-validator.png)
 
 **API Module Validation:**
-![API.js Validator](assets/images/readme/api.js\ Javascript\ validator.png)
+![API.js Validator](assets/images/readme/api-javascript-validator.png)
 
 **Dark Mode Module Validation:**
-![DarkMode.js Validator](assets/images/readme/darkMode.js\ Javascript\ validator.png)
+![DarkMode.js Validator](assets/images/readme/darkmode-js-javascript-validator.png)
 
 **Data Module Validation:**
-![Data.js Validator](assets/images/readme/data.js\ Javascript\ validator.png)
+![Data.js Validator](assets/images/readme/data-js-javascript-validator.png)
 
 - **ValidateJavaScript.com**: No errors or warnings
 - **ESLint Compliance**: 
