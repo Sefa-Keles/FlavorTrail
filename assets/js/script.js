@@ -58,6 +58,20 @@ function renderWeather(data) {
 function renderMenu(items) {
   menuContainer.innerHTML = '';
 
+  // Show message if no items found
+  if (items.length === 0) {
+    menuContainer.innerHTML = `
+      <div class="col-12">
+        <div class="text-center py-5 my-5" style="color: var(--highlight-color);">
+          <i class="fas fa-search fa-3x mb-3"></i>
+          <h3>No dishes found</h3>
+          <p>Try searching with a different keyword or browse all categories</p>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
   items.forEach(item => {
     const card = document.createElement('div');
     card.classList.add('col');
