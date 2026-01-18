@@ -16,6 +16,9 @@
     <!-- Custom stylesheet - contains all custom styles and dark mode -->
     <link rel="stylesheet" href="assets/css/styles.css">
     
+    <!-- Responsive design stylesheet - contains all media queries for different devices -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
     <!-- Favicon - website icon shown in browser tab -->
     <link rel="icon" href="assets/images/logo.webp" type="image/webp" sizes="32x32">
     
@@ -68,7 +71,7 @@
                 </form>
                 
                 <!-- Category filter buttons - filter menu items by category (All/Meals/Salads/Desserts/Drinks) -->
-                <div class="d-flex justify-content-center flex-wrap gap-2 mt-4" role="group" aria-label="Filter menu by category">
+                <div class="d-flex justify-content-center flex-wrap gap-1 gap-sm-2 mt-4 filter-buttons-container" role="group" aria-label="Filter menu by category">
                     <button class="btn btn-light filter-btn active" type="button" data-category="All" aria-pressed="true">All</button>
                     <button class="btn btn-outline-light filter-btn" type="button" data-category="Meal" aria-pressed="false">Meals</button>
                     <button class="btn btn-outline-light filter-btn" type="button" data-category="Salad" aria-pressed="false">Salads</button>
