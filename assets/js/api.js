@@ -20,12 +20,9 @@ export async function fetchLondonWeather() {
     const data = await response.json();
     if (data.cod === 200 || data.cod === "200") {
       return data;
-    } else {
-      console.error('Weather API Error:', data);
-      return null;
     }
+    return null;
   } catch (error) {
-    console.error('Weather fetch error:', error);
     return null;
   }
 }
@@ -50,7 +47,6 @@ export async function fetchExchangeRates() {
     const data = await response.json();
     return data.conversion_rates || {};
   } catch (error) {
-    console.error('Exchange rate fetch error:', error);
     return {};
   }
 }
