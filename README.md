@@ -79,10 +79,10 @@ This application allows users to:
 ### 📱 Responsive Design
 
 **Desktop - Light Mode:**
-![Desktop Light](assets/images/readme/all-devices-white.png)
+![Desktop Light](assets/images/readme/laptop-light.png)
 
 **Desktop - Dark Mode:**
-![Desktop Dark](assets/images/readme/all-devices-black.png)
+![Desktop Dark](assets/images/readme/laptop-dark.png)
 
 **Tablet - Light Mode:**
 ![Tablet Light](assets/images/readme/tablet-white.png)
